@@ -14,10 +14,10 @@ db.serialize(() => {
     db.run(`
         CREATE TABLE IF NOT EXISTS patients (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT,
-            age INTEGER,
-            species TEXT,
-            owner TEXT
+            name TEXT NOT NULL,
+            age INTEGER NOT NULL,
+            species TEXT NOT NULL,
+            owner TEXT NOT NULL
         )
     `, (err) => {
         if (err) {
