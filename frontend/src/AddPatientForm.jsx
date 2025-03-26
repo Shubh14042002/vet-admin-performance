@@ -15,7 +15,7 @@ const AddPatientForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3000/patients", formData)
+    axios.post("http://localhost:3001/patients", formData)
       .then((response) => {
         alert("Patient added successfully!");
         setFormData({ name: "", age: "", species: "", owner: "" });
