@@ -1,23 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
 
-const PatientList = () => {
-  const [patients, setPatients] = useState([]);
-
-  useEffect(() => {
-    // Fetch patients from the backend
-    axios.get("http://52.45.170.117:3001/patients")
-      .then((response) => setPatients(response.data))
-      .catch((error) => console.error("Error fetching patients:", error));
-  }, []);
-
+const PatientList = ({ patients, onDeleteSuccess }) => {
   const handleDelete = (id) => {
-    axios.delete(`http://52.45.170.117:3001/patients/${id}`)
+    axios
+      .delete(`http://52.45.170.117:3001/patients/${id}`)
       .then(() => {
-        setPatients(patients.filter((patient) => patient.id !== id));
+        onDeleteSuccess(); // Re-fetch after deletion
       })
       .catch((error) => console.error("Error deleting patient:", error));
   };
+
   return (
     <div>
       <h2>Patient List</h2>
@@ -48,7 +41,7 @@ const PatientList = () => {
         </tbody>
       </table>
     </div>
-  );  
+  );
 };
 
 export default PatientList;
