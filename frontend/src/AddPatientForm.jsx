@@ -45,6 +45,7 @@ const AddPatientForm = () => {
             name="age"
             value={formData.age}
             onChange={handleChange}
+            min="0" 
             required
           />
         </label>
