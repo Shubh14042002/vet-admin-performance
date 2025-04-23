@@ -5,19 +5,11 @@ import AddPatientForm from "./AddPatientForm";
 
 function App() {
   const [patients, setPatients] = useState([]);
-  const [cachedPatients, setCachedPatients] = useState(null);
 
   const fetchPatients = () => {
-    if (cachedPatients) {
-      setPatients(cachedPatients);
-      return;
-    }
-
-    axios.get("http://52.45.170.117:3001/patients")
-      .then((response) => {
-        setPatients(response.data);
-        setCachedPatients(response.data);
-      })
+    axios
+      .get("http://52.45.170.117:3001/patients")
+      .then((response) => setPatients(response.data))
       .catch((error) => console.error("Error fetching patients:", error));
   };
 
