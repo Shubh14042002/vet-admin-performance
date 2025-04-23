@@ -6,13 +6,13 @@ const PatientList = () => {
 
   useEffect(() => {
     // Fetch patients from the backend
-    axios.get("http://34.235.130.180:3001/patients")
+    axios.get("http://52.45.170.117:3001/patients")
       .then((response) => setPatients(response.data))
       .catch((error) => console.error("Error fetching patients:", error));
   }, []);
 
   const handleDelete = (id) => {
-    axios.delete(`http://34.235.130.180:3001/patients/${id}`)
+    axios.delete(`http://52.45.170.117:3001/patients/${id}`)
       .then(() => {
         setPatients(patients.filter((patient) => patient.id !== id));
       })
