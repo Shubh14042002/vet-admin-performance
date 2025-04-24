@@ -9,8 +9,8 @@ class PatientUser(HttpUser):
         patient_data = {
             "name": f"Patient_{random.randint(1, 1000)}",
             "age": random.randint(1, 15),
-            "species": random.choice(["Dog", "Cat", "Rabbit", "Bird"]),
-            "owner": f"{random.choice(["Alice", "Bob", "Michi", "Samu", "Shubh", "Sayma"])}"
+            "species": random.choice(['Dog', 'Cat', 'Rabbit', 'Bird']),
+            "owner": f"{random.choice(['Alice', 'Bob', 'Michi', 'Samu', 'Shubh', 'Sayma'])}"
         }
         self.client.post("/patients", json=patient_data)
 
