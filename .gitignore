@@ -66,6 +66,9 @@ web_modules/
 .rts2_cache_es/
 .rts2_cache_umd/
 
+# test cache
+tests/_pycache_/
+
 # Optional REPL history
 .node_repl_history
 
